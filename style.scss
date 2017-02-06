@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
+// color themes
+// name: (main_color, font_color, font)
+$themes: ( dark_theme: (#000000, #e0e0d1, 'Roboto', sans-serif),
+light_theme: (#e0e0d1, #000000, 'Roboto', sans-serif),
+color_theme: (#a5dff9, #ef5285, 'Butterfly Kids', cursive));
+@each $theme,
+$kwargs in $themes {
+ $color_main: nth($kwargs, 1);
+ $color_font: nth($kwargs, 2);
+ $font: nth($kwargs, 3);
+ $font_family: nth($kwargs, 4);
+ .#{$theme} {
+  //main elements
+  .container_heading1 {
+   color: $color_font;
+   font-family: $font, $font_family;
+  }
+  .container_heading2 {
+   color: $color_font;
+   font-family: $font, $font_family;
+  }
+  .temp {
+   color: $color_font;
+   font-family: $font, $font_family;
+  }
+  .container_main {
+   background: $color_main;
+  }
+  .enh {
+   color: $color_font;
+  }
+  // side nav elements
+  .nav_main {
+   stroke: $color_font;
+  }
+  .theme_element {
+   stroke: $color_font;
+  }
+  .nav_element {
+   fill: $color_main;
+   stroke: $color_font;
+  }
+  .nav_text {
+   fill: $color_font;
+  }
+  //main icons 
+  .thunderstorm {
+   fill: $color_font;
+  }
+  .cloud1 {
+   stroke: $color_font;
+   fill: $color_main;
+  }
+  .cloud2 {
+   stroke: $color_font;
+   fill: $color_main;
+  }
+  .raindrop {
+   fill: $color_font;
+   stroke: $color_font;
+  }
+  .moon {
+   fill: $color_font;
+  }
+  .sun {
+   fill: $color_font;
+   stroke: $color_font;
+  }
+  .mist {
+   stroke: $color_font;
+   fill: none;
+  }
+  .cold {
+   fill: $color_font;
+   stroke: $color_font;
+  }
+  .cold_fill {
+   fill: black;
+   stroke: black;
+  }
+  .termometer {
+   fill: white;
+   stroke: black;
+  }
+  .wind {
+   stroke: $color_font;
+   fill: none;
+  }
+  //additional icons  
+  .low {
+   fill: $color_font;
+   stroke: none;
+  }
+  .high {
+   fill: $color_font;
+   stroke: none;
+  }
+  .arrow {
+   stroke: $color_font;
+   fill: $color_font;
+  }
+  @if$theme ==color_theme {
+   .raindrop {
+    fill: blue;
+    stroke: blue;
+   }
+   .sun {
+    fill: yellow;
+    stroke: yellow;
+   }
+   .cloud1 {
+    fill: white;
+    stroke: none;
+   }
+   .cloud2 {
+    fill: grey;
+    stroke: none;
+   }
+   .high {
+    fill: red;
+    stroke: none;
+   }
+   .low {
+    fill: blue;
+    stroke: none;
+   }
+   .cold {
+    fill: blue;
+    stroke: blue;
+   }
+   .cold_fill {
+    fill: blue;
+    stroke: blue;
+   }
+   .hot {
+    fill: red;
+    stroke: red;
+   }
+   .termometer {
+    fill: white;
+    stroke: black;
+   }
+   .moon {
+    fill: #C0C0C0;
+    stroke: none;
+   }
+   .thunderstorm {
+    fill: yellow;
+   }
+   .mist {
+    stroke: black;
+    fill: none;
+   }
+   .wind {
+    stroke: black;
+    fill: none;
+   }
+   .arrow {
+    stroke: black;
+    fill: black;
+   }
+  }
+ }
+}
+
+
+
+// default and other settings
+$pad: 20px;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ -ms-box-sizing: border-box;
+ box-sizing: border-box;
+ // min-height: 100%;
+}
+
+.settings_slide {
+ top: 50px;
+ left: 0;
+ position: fixed;
+ padding: 12px 0;
+}
+
+.slide_inner {
+ position: fixed;
+ // top: 80px;
+ left: -80px;
+ // width: 60px;
+ // height: 330px;
+ color: green;
+ -webkit-transition-duration: 0.3s;
+ -moz-transition-duration: 0.3s;
+ -o-transition-duration: 0.3s;
+ transition-duration: 0.3s;
+}
+
+.settings_slide:hover .nav_main {
+ -ms-transform: rotate(180deg);
+ -webkit-transform: rotate(180deg);
+ transform: rotate(180deg);
+}
+
+.settings_slide:hover .slide_inner {
+ left: 0;
+}
+
+.container_main {
+ // padding: 0;
+ min-height: 100vh;
+ display: -webkit-box;
+ display: -moz-box;
+ display: -ms-flexbox;
+ display: -webkit-flex;
+ display: flex;
+ flex-direction: column;
+}
+
+.main {
+ text-align: center;
+}
+
+h1 {
+ font-size: 4em;
+}
+
+h2 {
+ font-size: 2em;
+}
+
+.svg_container {
+ max-width: 10em;
+ display: inline-block;
+ margin: 10px;
+ padding: 10px;
+ align-self: center;
+}
+
+.enh {
+ display: -webkit-box;
+ display: -moz-box;
+ display: -ms-flexbox;
+ display: -webkit-flex;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: row;
+ justify-content: center;
+ 
+}
+
+.svg_container_small {
+ max-width: 4em;
+ padding-bottom: 53%;
+ display: inline-block;
+ margin: 10px;
+ padding: 10px;
+ text-align: center;
+}
+
+dd:not(.dontHover):hover {
+ margin-left: 15px;
+}
+
+.dontHover {
+ margin-left: 15px;
+}
+
+dl {
+ list-style: none;
+}
+
+dd {
+ margin-left: 5px;
+}
+
+dt {
+ font-weight: bold;
+}
+
+
